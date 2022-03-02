@@ -15,4 +15,4 @@ Finally Open the link http://127.0.0.1:8082/ to acees the page
 ## 3. Navigation through website
 1. Home - http://127.0.0.1:8082/
 2. All Badges - http://127.0.0.1:8082/badges/
-3. Verification - 127.0.0.1:8082/badge/verify?name=<badge_name>&email=<email_id>
+3. Verification - http://127.0.0.1:8082/badge/verify?name=<badge_name>&email=<email_id>
