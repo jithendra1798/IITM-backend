@@ -1,3 +1,4 @@
+import email
 from django.shortcuts import redirect, render
 from landingpage.models import Badge, Student
 import datetime
@@ -38,3 +39,21 @@ def show_badges(request):
     }
     return render(request, 'all_badges.html', data)
 
+def verify(request):
+    if request.method=='GET':
+        try:
+            badge_name = request.GET.get('name')
+            email_id = request.GET.get('email')
+            student_badge = Badge.objects.filter(badge_name=badge_name)[0]
+            students = Student.objects.filter(student_badge=student_badge,student_email=email_id)
+            if len(students)>0:
+                data = {
+                    'students':students
+                }
+                return render(request, 'all_badges.html', data)
+            else:
+                return render(request, 'no_data.html')
+        except:
+            return redirect('/badges')
+
+    return redirect('/badges')
