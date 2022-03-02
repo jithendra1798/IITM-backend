@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Badges</title>
+</head>
+<body>
+    {% for student in students %}
+    <a href='/badges/{{book.id}}' target="__blank">
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <img class="img-fluid" src='{{student.student_badge.badge_image.url}}' alt='{{student.student_badge.badge_name}}' style="width: 100%; height: 240px;">
+                <div class="card-body" style="height:200px">
+                    <h5 class="card title" style="text-align: left;">{{student.student_email}}</h5>
+                    <p class="card-text" style="width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{student.student_badge.badge_name}}</p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text d-inline"><small class="text-muted">{{student.student_badge.badge_description}}</small>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</body>
+</html>
